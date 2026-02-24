@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shim's Birthday Gift</title>
+
+<style>
+:root {
+  --bg: linear-gradient(180deg, #f6f1ff, #fbf8ff);
+  --card: rgba(255,255,255,0.96);
+  --purple: #8b5cf6;
+  --text: #2b2b36;
+  --muted: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ---------- STAGES ---------- */
+.stage {
+  display: none;
+  width: 100%;
+  max-width: 950px;
+}
+.stage.active {
+  display: block;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 32px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 35%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 35%,
+    transparent 100%
+  );
+}
+
+/* ---------- HEADER ---------- */
+h1 {
+  text-align: center;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+
+/* ---------- LETTER ---------- */
+.letter {
+  white-space: pre-wrap;
+  line-height: 1.85;
+  font-size: clamp(15px, 3.8vw, 17px);
+  color: var(--muted);
+}
+
+/* ---------- BUTTON ---------- */
+.button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.btn {
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.18);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- SLIDESHOW ---------- */
+.slideshow {
+  text-align: center;
+}
+
+.slideshow img {
+  max-width: 100%;
+  max-height: 65vh;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+/* ---------- FINAL ---------- */
+.final {
+  text-align: center;
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 800;
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: finalFade 1.3s ease forwards;
+}
+
+@keyframes finalFade {
+  to { opacity: 1; }
+}
+
+/* ---------- CONFETTI ---------- */
+.confetti {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--purple);
+  top: -10px;
+  animation: fall linear forwards;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔊 BACKGROUND MUSIC (AUTOPLAY + LOOP) -->
+<audio id="bgMusic" autoplay loop>
+  <source src="Sparks.mp3" type="audio/mpeg">
+</audio>
+
+<!-- STAGE 1 -->
+<div class="stage active" id="stage1">
+  <div class="card">
+    <h1>Happy birthday, to the love of my life! &lt;3</h1>
+
+    <div class="letter">
+Happy birthday mirchi <3
+
+To the girl who makes every day brighter, every laugh louder, and every day better, Happy Birthday! 14 years. 14 years of having such a wonderful person like you in this world. 14 years of being there for others, helping others out, and smiling, as always. Even though we've met for just a year now, you're already so grown up! As we gradually started talking more since the first day we met, the more you started to bring back the spark in me, the smile and happiness that I had been longing for over a long, long time. And I really cannot thank you any more. You did what no one else can, no one else could, and no one else ever will, and I will forever and ever remember that. You mean a LOT to me, and I mean a LOT, and so, enjoy this day, and have everything to yourself. Happy 14th birthday, Shimi <3
+
+On Monday, 12th March, 2012, you were born. And it is safe to say that on that day, one of the most wonderful and amazing human beings that I and many others have ever known was born. You have always helped others out, and you've always been so kind, and loving, and helping with others, and more over, you've helped me with my own development as well, and you still are helping me gradually become into the best version of myself, and I really cannot thank you any more. You deserve the best and only the best, and you're gonna get it by none other than me. It may not be instant, but I promise you, gradually you will, and then you'll look back and be proud of yourself, of who you've helped me become. Everything that you've done for me, it is really amazing how you think that is nothing, it means so much to me my dear!
+
+Looking back at all the times we had, yeah we have had our differences once in a while, and I apologise for them once again, but for me, what was important and what I'm thankful for is that you were willing to trust me and give me one more chance. Yeah, you may not trust me as much as you may trust anyone else, for me however, I trust you with all my heart, and I cannot appreciate and be thankful for the countless number of times you've let things slide, just to stick by me, and be there for me, no matter what it may be.
+
+And so, as always, I promise to be there for you during the times of difficulty as well, and I hope I can help you out, in one way or the other, and hopefully one day repay you back for all you've done for me so far (and all that you will do in the coming times). It is pretty hard to do so from my perspective, but once again, I want to get the best and only the best for you, and I will put in my 100%, for anything that you may want or require anywhere, as you're so worth it. Again, I'm always gonna be there to help you, and I have no second thoughts about anything, as you're the love of my life, and you always will be.
+
+I cannot express my feelings once again for how thankful I am for having such a wonderful person in my life, and I just can't imagine having to live a single day without you in it, it makes my heart sink. You brought the light to my darkness, you helped me find my lost wings, you cheered me up during all sorts of difficult periods, and you've always stuck to your word and been there for me. I thank you for everything that you've done to me so far, and I really, really hope, that we can be there for each other for many years to come, perhaps for life <3
+
+Sorry I couldn't make anything as good and authentic as the wonderful drawing that you made for me, I really appreciate all the efforts you've put into making it come to life, and hopefully in the coming years I'll do something even better for ya, that you'll love and remember for the rest of your life. I love you sooo much, mwah <3
+
+Now, enjoy this day, stay blessed, stay hydrated and eat good food, keep smiling as always, and have a wonderful and much enjoyable and amazing day ahead. I love you and only you, more than just to the moon and back and even more, to infinity and beyond, and in every life, no matter what it takes, you will forever and always be mine and only mine, and I will always and forever be only yours. Have a great day ahead, and Happy 14th birthday once again, the love of my life <3
+
+With much love, 
+Nishad
+    </div>
+
+    <div class="button-wrap">
+      <button class="btn" onclick="startSlideshow()">Start Slideshow</button>
+    </div>
+  </div>
+</div>
+
+<!-- STAGE 2 -->
+<div class="stage" id="stage2">
+  <div class="slideshow">
+    <img id="slide" src="1.png">
+    <div class="controls">
+      <button class="btn" onclick="prev()">Prev</button>
+      <button class="btn" onclick="next()">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- STAGE 3 -->
+<div class="stage" id="stage3">
+  <div class="final">
+    Once again, happy birthday — to the best partner in the world.
+  </div>
+</div>
+
+<script>
+let index = 1;
+const total = 25;
+
+const img = document.getElementById("slide");
+const stage1 = document.getElementById("stage1");
+const stage2 = document.getElementById("stage2");
+const stage3 = document.getElementById("stage3");
+const card = document.querySelector("#stage1 .card");
+const bgMusic = document.getElementById("bgMusic");
+
+/* Ensure autoplay works after any interaction */
+window.addEventListener("load", () => {
+  bgMusic.volume = 0.6;
+  bgMusic.play().catch(() => {});
+});
+
+document.addEventListener("click", () => bgMusic.play(), { once: true });
+
+function startSlideshow() {
+  stage1.classList.remove("active");
+  stage2.classList.add("active");
+}
+
+function next() {
+  if (index < total) {
+    index++;
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = index + ".png";
+      img.style.opacity = 1;
+    }, 180);
+  } else {
+    stage2.classList.remove("active");
+    stage3.classList.add("active");
+    confetti();
+  }
+}
+
+function prev() {
+  if (index > 1) {
+    index--;
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = index + ".png";
+      img.style.opacity = 1;
+    }, 180);
+  }
+}
+
+/* Fade disappears as you scroll */
+card.addEventListener("scroll", () => {
+  const scrollTop = card.scrollTop;
+  const maxFadeScroll = 180;
+  const fadeStrength = Math.max(0, 1 - scrollTop / maxFadeScroll);
+  const fadePoint = 35 + (1 - fadeStrength) * 65;
+
+  const mask = `linear-gradient(
+    to bottom,
+    black 0%,
+    black ${fadePoint}%,
+    transparent 100%
+  )`;
+
+  card.style.webkitMaskImage = mask;
+  card.style.maskImage = mask;
+});
+
+function confetti() {
+  for (let i = 0; i < 35; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.animationDuration = 2.5 + Math.random() * 1.5 + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 4000);
+  }
+}
+</script>
+
+</body>
+</html>
